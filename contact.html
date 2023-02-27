@@ -120,30 +120,32 @@
             </div>
             <div class="contact-form">
                 <div id="success"></div>
-                <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                    <div class="control-group">
-                        <input type="text" class="form-control" id="name" placeholder="Your Name" required="required"
-                            data-validation-required-message="Please enter your name" />
-                        <p class="help-block text-danger"></p>
+                <form action="http://localhost:5000/sendmail" method="Post" data-sb-form-api-token="API_TOKEN">
+                    <!-- <form action="forms/contact.php" method="post" role="form" class="php-email-form"> -->
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name"
+                                required>
+                        </div>
+                        <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input type="email" class="form-control" id="from" name="from" placeholder="Your Email"
+                                required>
+                        </div>
                     </div>
-                    <div class="control-group">
-                        <input type="email" class="form-control" id="email" placeholder="Your Email" required="required"
-                            data-validation-required-message="Please enter your email" />
-                        <p class="help-block text-danger"></p>
+                    <div class="form-group mt-3">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject"
+                            required>
                     </div>
-                    <div class="control-group">
-                        <input type="text" class="form-control" id="subject" placeholder="Subject" required="required"
-                            data-validation-required-message="Please enter a subject" />
-                        <p class="help-block text-danger"></p>
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Message"
+                            required></textarea>
                     </div>
-                    <div class="control-group">
-                        <textarea class="form-control" id="message" placeholder="Message" required="required"
-                            data-validation-required-message="Please enter your message"></textarea>
-                        <p class="help-block text-danger"></p>
+                    <div class="my-3">
+
+
+
                     </div>
-                    <div>
-                        <button class="btn btn-custom" type="submit" id="sendMessageButton">Send Message</button>
-                    </div>
+                    <div class="text-center"><button type="submit">Send Message</button></div>
                 </form>
             </div>
         </div>

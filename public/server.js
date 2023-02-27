@@ -42,20 +42,25 @@ transporter.verify((error, success) => {
 
 });
 app.post("/sendmail", (req, res) => {
-    const { name, email, subject, message } = req.body;
+    const { name, from, subject, message } = req.body;
 
     const mailOptions = {
-
+        // name: name,
+        from: from,
         to: process.env.AUTH_EMAIL,
-        name: name,
-        email: email,
         subject: subject,
         text: message
+
     }
     transporter
         .sendMail(mailOptions)
         .then(() => {
-            res.sendFile(path.join(__dirname, "./public/success.html"))
+            res.sendFile(path.join(__dirname, "../success.html"))
+            // let err = res.json({
+            //     status: "SUCCESS",
+            //     message: "measage sent successful"
+            // })
+            // console.log(err)
         })
         .catch((error) => {
             console.log(error);
